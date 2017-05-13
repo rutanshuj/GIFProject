@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:padding="5sp"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="25sp"
+        android:layout_marginTop="12dp"
+        android:padding="5sp"
         android:text="Where would you like to store your GIF?"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="122dp"
-        android:id="@+id/textView" />
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/onDevice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ON DEVICE"
-        android:layout_alignBaseline="@+id/onDrive"
-        android:layout_alignBottom="@+id/onDrive"
-        android:layout_toLeftOf="@+id/onDrive"
-        android:layout_toStartOf="@+id/onDrive"
-        android:layout_marginRight="43dp"
-        android:layout_marginEnd="43dp" />
+        android:layout_gravity="center"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ON DRIVE"
-        android:layout_marginRight="77dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginTop="67dp"
+        android:layout_gravity="center"
         android:id="@+id/onDrive"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+       />
 
 
-</RelativeLayout>
+</LinearLayout>
