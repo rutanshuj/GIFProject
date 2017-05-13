@@ -28,17 +28,22 @@ import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
+
+
     private static final int CAMERA_REQUEST = 1888;
     Button b1;
     private Button device, drive;
     ImageView imageView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         b1 = (Button) findViewById(R.id.capture);
 
@@ -48,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//
+                Intent intent = new Intent(MainActivity.this,  VideoServer.class);
+                startActivity(intent);
 //                Intent cameraIntent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
 //
 ////                  File picDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
@@ -58,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
 ////                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 //
 //                startActivityForResult(cameraIntent, CAMERA_REQUEST);
-
-
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 AnimatedGifEncoder encoder = new AnimatedGifEncoder();
@@ -101,10 +105,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("ExternalStorageDemo", "Save to: " + path);
 
 
-                try {
-                    Toast.makeText(MainActivity.this, "Lol", Toast.LENGTH_SHORT).show();
-                    File myFile = new File(path);
-                    myFile.createNewFile();
+                    File myFile = new File(path, "hello.gif");
+                try{
+                    //myFile.createNewFile();
                     FileOutputStream fOut = new FileOutputStream(myFile);
 
                     fOut.write(bos.toByteArray());
