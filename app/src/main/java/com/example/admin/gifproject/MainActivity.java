@@ -1,5 +1,6 @@
 package com.example.admin.gifproject;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -20,6 +22,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 1888;
     Button b1;
+    private Button device, drive;
     ImageView imageView;
 
     @Override
@@ -84,6 +87,38 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == CAMERA_REQUEST && resultCode == RESULT_OK){
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(photo);
+
+            showDialog();
         }
+    }
+
+    private void showDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.customdialog);
+        dialog.setTitle("What's next");
+
+
+        //Setting dialog components
+
+        TextView textView = (TextView) dialog.findViewById(R.id.textView);
+        Button device = (Button) dialog.findViewById(R.id.onDevice);
+        Button drive = (Button) dialog.findViewById(R.id.onDrive);
+
+
+        device.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        drive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        dialog.show();
     }
 }
